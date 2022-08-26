@@ -2,7 +2,7 @@
 interface IWeatherResponseProps {
   /** 2021-12-18 */
   date: string
-  /** 星期六 */
+  /** 周六 */
   week: string
   /** 蚌埠 */
   area: string

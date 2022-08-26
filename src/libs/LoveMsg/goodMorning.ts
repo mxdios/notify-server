@@ -20,7 +20,7 @@ const goodWord = async () => {
       API.getOneWord(), // 一言
       API.getSongLyrics(), // 最美宋词
       API.getOneMagazines(), // one杂志
-      API.getNetEaseCloud(), // 网易云热评
+      // API.getNetEaseCloud(), // 网易云热评
       API.getDayEnglish(), // 每日英语
     ])
 

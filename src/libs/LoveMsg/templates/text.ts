@@ -11,23 +11,25 @@ const CONFIG = getConfig().loveMsg
 export const textTemplate = (data: TextTemplateProps) => {
   const { caiHongpi, sayLove, songLyrics, oneMagazines, netEaseCloud, oneWord, dayEnglish } = data
 
-  let text = `早安呀，我可爱的${CONFIG.girl_name}~\n`
+  let text = `早呀，我亲爱的${CONFIG.girl_name}~\n`
 
   // 工作日/休息日，需要排除节假日
   const week = weekToday()
-  if (['星期六', '星期日'].includes(week)) {
-    text += `
-如果我${CONFIG.girl_name}已经起床啦！${CONFIG.boy_name}向你说早安呦~，记得吃早饭呀😆\n
-嗯哼哼~今天可是${week}哦，上班别迟到了哦~`
-  } else {
-    text += `
-如果我${CONFIG.girl_name}还没起床呀！${CONFIG.boy_name}就等着${CONFIG.girl_name}起床给我说早安呦🤣
-嗯哼~，既然今天是${week}，就让你再睡会懒觉~下次可不能啦~😝\n`
-  }
+
+  text += `今天是${week}，${CONFIG.boy_name}向你说早安，记得吃早餐，开心一整天，爱你💋~\n`
+
+//   if (['周六', '周日'].includes(week)) {
+//     text += `
+// 如果我${CONFIG.girl_name}已经起床啦！${CONFIG.boy_name}向你说早安呦~，记得吃早饭呀😆\n
+// 嗯哼哼~今天可是${week}哦，上班别迟到了哦~`
+//   } else {
+//     text += `
+// 如果我${CONFIG.girl_name}还没起床呀！${CONFIG.boy_name}就等着${CONFIG.girl_name}起床给我说早安呦🤣
+// 嗯哼~，既然今天是${week}，就让你再睡会懒觉~下次可不能啦~😝\n`
+//   }
 
   // 添加笑话
   if (caiHongpi) {
-    //     text += `
     // 彩虹屁：
     text += `
 ${caiHongpi.content}\n`
