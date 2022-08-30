@@ -28,6 +28,25 @@ interface loveMsgProps {
    * @default true
    */
   date_lunarInfo: boolean
+  /**
+   * 土味情话（默认开启）
+   * @default true
+   */
+  say_love: boolean
+  // 彩虹屁
+  cai_hong_pi: boolean
+  // 一言
+  one_word: boolean
+  // 最美宋词
+  song_lyrics: boolean
+  // one杂志
+  one_magazines: boolean
+  // 网易云热评
+  net_ease_cloud: boolean
+  // 每日英语
+  day_english: boolean
+  // 生日倒计时
+  birthday_down: []
 }
 
 type IConfigProps = { loveMsg: loveMsgProps }

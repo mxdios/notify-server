@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { getTian } from '../utils/http'
-
+import { getConfig } from '../utils/getConfig'
+const CONFIG = getConfig().loveMsg
 /**
  * 给女朋友发送内容的相关接口
  */
@@ -70,20 +71,32 @@ class API {
 
   // 最美宋词
   async getSongLyrics() {
-    const res = await getTian<IVerseProps[]>({ url: LoveMsgURL.songLyrics })
-    return res?.[0]
+    if (CONFIG.song_lyrics) {
+      const res = await getTian<IVerseProps[]>({ url: LoveMsgURL.songLyrics })
+      return res?.[0]
+    } else {
+      return null
+    }
   }
 
   // 每日一句美好英语
   async getDayEnglish() {
-    const res = await getTian<ResEnglishProps[]>({ url: LoveMsgURL.dayEnglish })
-    return res?.[0]
+    if (CONFIG.day_english) {
+      const res = await getTian<ResEnglishProps[]>({ url: LoveMsgURL.dayEnglish })
+      return res?.[0]  
+    } else {
+      return null
+    }
   }
 
   // one一个杂志
   async getOneMagazines() {
-    const res = await getTian<OneMagazines[]>({ url: LoveMsgURL.oneMagazines })
-    return res?.[0]
+    if (CONFIG.one_magazines) {
+      const res = await getTian<OneMagazines[]>({ url: LoveMsgURL.oneMagazines })
+      return res?.[0]
+    } else {
+      return null
+    }
   }
 
   // 故事大全
@@ -94,8 +107,12 @@ class API {
 
   // 网易云热评
   async getNetEaseCloud() {
-    const res = await getTian<NetEaseCloudProps[]>({ url: LoveMsgURL.netEaseCloud })
-    return res?.[0]
+    if (CONFIG.net_ease_cloud) {
+      const res = await getTian<NetEaseCloudProps[]>({ url: LoveMsgURL.netEaseCloud })
+      return res?.[0]
+    } else {
+      return null
+    }
   }
 
   // 获取农历信息
@@ -106,14 +123,22 @@ class API {
 
   // 土味情话
   async getSaylove() {
-    const res = await getTian<SayloveProps[]>({ url: LoveMsgURL.saylove })
-    return res?.[0]
+    if (CONFIG.say_love) {
+      const res = await getTian<SayloveProps[]>({ url: LoveMsgURL.saylove })
+      return res?.[0]
+    } else {
+      return null
+    }
   }
 
   // 彩虹屁
   async getCaihongpi() {
-    const res = await getTian<SayloveProps[]>({ url: LoveMsgURL.caihongpi })
-    return res?.[0]
+    if (CONFIG.cai_hong_pi) {
+      const res = await getTian<SayloveProps[]>({ url: LoveMsgURL.caihongpi })
+      return res?.[0]
+    } else {
+      return null
+    }
   }
 
   // 雷人笑话
@@ -124,11 +149,15 @@ class API {
 
   // 一言
   async getOneWord(): Promise<OneWordProps | null> {
-    try {
-      const response = await axios(LoveMsgURL.oneWord, { timeout: 30000 })
-      return response.data
-    } catch (error) {
-      console.log(error)
+    if (CONFIG.one_word) {
+      try {
+        const response = await axios(LoveMsgURL.oneWord, { timeout: 30000 })
+        return response.data
+      } catch (error) {
+        console.log(error)
+        return null
+      }
+    } else {
       return null
     }
   }

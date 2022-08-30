@@ -19,3 +19,25 @@ loveMsg:
   weather_tem: true
   # 农历信息（默认开启）
   date_lunarInfo: true
+  # 土味情话
+  say_love: true
+  # 彩虹屁
+  cai_hong_pi: true
+  # 一言
+  one_word: false
+  # 最美宋词
+  song_lyrics: false # true
+  # one杂志
+  one_magazines: false
+  # 网易云热评
+  net_ease_cloud: false
+  # 每日英语
+  day_english: false
+
+  # 生日倒计时
+  birthday_down:
+    - {date: 10-17, info: 暖宝生日, info2: 祝暖宝生日快乐}
+    - {date: 01-21, info: 喵先生生日, info2: 祝喵先生生日快乐}
+    - {date: 09-27, info: 汪女士生日, info2: 祝汪女士生日快乐}
+    - {date: 08-30, info: 沫沫生日, info2: 祝沫沫生日快乐}
+ 

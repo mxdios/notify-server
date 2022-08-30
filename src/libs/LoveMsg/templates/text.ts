@@ -18,6 +18,21 @@ export const textTemplate = (data: TextTemplateProps) => {
 
   text += `今天是${week}，${CONFIG.boy_name}向你说早安，记得吃早餐，开心一整天，爱你💋~\n`
 
+  // 生日倒计时
+  const countDown = CONFIG.birthday_down
+  for (let i = 0; i < countDown.length; i++) {
+    const date = dayjs().year() + '-' + countDown[i]['date']
+    const info = countDown[i]['info']
+    const info2 = countDown[i]['info2']
+//  + date
+    const dayDiffer = dayjs(date).diff(dayjs(), 'day')
+    if (dayDiffer == 0) {
+      text += `🎂🎂今天是${info}，${info2}🎂🎂\n`
+    } else if (dayDiffer > 0 && dayDiffer < 30) {
+      text += `距离${info}还有${dayDiffer}天，${info2}~\n`
+    }
+  }
+
 //   if (['周六', '周日'].includes(week)) {
 //     text += `
 // 如果我${CONFIG.girl_name}已经起床啦！${CONFIG.boy_name}向你说早安呦~，记得吃早饭呀😆\n
